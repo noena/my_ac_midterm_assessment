@@ -1,2 +1,26 @@
-<h1>Doctors' Complete List</h1>
-<p>Find me in app/views/doctors/index.html.erb</p>
+<div>
+  <h1>Doctors' Complete List</h1>
+  <%= link_to("Add New Doctor", '#', :class => 'action new')%><br>
+  <table>
+    <tr>
+      <th>Username</th>
+      <th>Address</th>
+      <th>Gender</th>
+      <th>Action</th>
+    </tr>
+    <% @doctors.each do |doctor| %>
+    <tr>
+      <td><%= doctor.username %></td>
+      <td><%= doctor.address %></td>
+      <td><%= doctor.gender %></td>
+      <td class="actions">
+      <%= link_to("Show", '#', :class => 'action show') %>
+      <%= link_to("Edit", '#', :class => 'action edit') %>
+      <%= link_to("Delete", '#', :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+
+
+</div>

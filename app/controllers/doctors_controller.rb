@@ -1,5 +1,6 @@
 class DoctorsController < ApplicationController
   def index
+    @doctors = Doctor.all
   end
 
   def show
@@ -30,7 +31,7 @@ class DoctorsController < ApplicationController
   end
 
   def list_male
-    
+
 
   end
 end
