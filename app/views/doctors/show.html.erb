@@ -1,2 +1,26 @@
-<h1>Doctors#show</h1>
-<p>Find me in app/views/doctors/show.html.erb</p>
+<div>
+  <%= link_to("Back", doctors_path, :class => 'action back')%><br>
+
+  <h1>Doctor's Details</h1>
+  <table>
+    <tr>
+      <th>Username</th>
+      <th>Address</th>
+      <th>Gender</th>
+      <th>Action</th>
+    </tr>
+
+    <tr>
+      <td><%= @doctor.username %></td>
+      <td><%= @doctor.address %></td>
+      <td><%= @doctor.gender %></td>
+      <td class="actions">
+      <%= link_to("Edit", '#', :class => 'action edit') %>
+      <%= link_to("Delete", '#', :class => 'action delete') %>
+      </td>
+    </tr>
+
+  </table>
+
+
+</div>

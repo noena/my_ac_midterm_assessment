@@ -1,2 +1,21 @@
-<h1>Doctors#new</h1>
-<p>Find me in app/views/doctors/new.html.erb</p>
+<div class="add doctor">
+  <%= link_to("Back", doctors_path, :class => 'action back')%>
+  <h1>Add New Doctor</h1>
+    <%= form_for @doctor do |f| %>
+    <table>
+      <tr>
+        <th>Username</th>
+        <td><%= f.text_field :username %>
+      </tr>
+      <tr>
+        <th>Address</th>
+        <td><%= f.text_field :address %>
+      </tr>
+      <tr>
+        <th>Gender</th>
+        <td><%= f.text_field :gender %>
+      </tr>
+    </table>
+    <%= f.submit "Create User" %></td>
+    <% end %>
+</div>

@@ -1,1 +1,30 @@
-<h1>Male Doctors</h1>
+<div>
+
+  <% if user_signed_in? %>
+  <%= link_to("Add New Doctor", new_doctor_path, :class => 'action new')%><br>
+  <%= link_to("Female Doctors", list_female_doctors_path)%><br>
+  <h1>Male Doctors</h1>
+      <table>
+        <tr>
+          <th>Username</th>
+          <th>Address</th>
+          <th>Gender</th>
+          <th>Action</th>
+        </tr>
+        <% @doctors.each do |doctor| %>
+        <tr>
+          <td><%= doctor.username %></td>
+          <td><%= doctor.address %></td>
+          <td><%= doctor.gender %></td>
+          <td class="actions">
+          <%= link_to("Show", doctor_path(doctor), :class => 'action show') %>
+          <%= link_to("Edit", edit_doctor_path(doctor), :class => 'action edit') %>
+          <%= link_to("Delete", doctor_path(doctor), method: :delete) %>
+          </td>
+        </tr>
+        <% end %>
+      </table>
+  <% end %>
+
+
+</div>

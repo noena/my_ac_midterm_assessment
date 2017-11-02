@@ -1,26 +1,45 @@
 <div>
+
+  <% if user_signed_in? %>
+  <%= link_to("Add New Doctor", new_doctor_path, :class => 'action new')%><br>
+  <%= link_to("Male Doctors", list_male_doctors_path, :class => 'action list_male')%><br>
+  <%= link_to("Female Doctors", list_female_doctors_path, :class => 'action list_female')%><br>
   <h1>Doctors' Complete List</h1>
-  <%= link_to("Add New Doctor", '#', :class => 'action new')%><br>
-  <table>
-    <tr>
-      <th>Username</th>
-      <th>Address</th>
-      <th>Gender</th>
-      <th>Action</th>
-    </tr>
-    <% @doctors.each do |doctor| %>
-    <tr>
-      <td><%= doctor.username %></td>
-      <td><%= doctor.address %></td>
-      <td><%= doctor.gender %></td>
-      <td class="actions">
-      <%= link_to("Show", '#', :class => 'action show') %>
-      <%= link_to("Edit", '#', :class => 'action edit') %>
-      <%= link_to("Delete", '#', :class => 'action delete') %>
-      </td>
-    </tr>
-    <% end %>
-  </table>
+      <table>
+        <tr>
+          <th>Username</th>
+          <th>Address</th>
+          <th>Gender</th>
+          <th>Action</th>
+        </tr>
+        <% @doctors.each do |doctor| %>
+        <tr>
+          <td><%= doctor.username %></td>
+          <td><%= doctor.address %></td>
+          <td><%= doctor.gender %></td>
+          <td class="actions">
+          <%= link_to("Show", doctor_path(doctor), :class => 'action show') %>
+          <%= link_to("Edit", edit_doctor_path(doctor), :class => 'action edit') %>
+          <%= link_to("Delete", doctor_path(doctor), method: :delete) %>
+          </td>
+        </tr>
+        <% end %>
+      </table>
+  <% else %>
+  <h1>List of Doctors</h1>
+      <table>
+        <tr>
+          <th>Current Title</th>
+          <th>Username</th>
+        </tr>
+        <% @doctors.each do |doctor| %>
+        <tr>
+          <td>Dr.</td>
+          <td><%= doctor.username %></td>
+        </tr>
+        <% end %>
+      </table>
+  <% end %>
 
 
 </div>
